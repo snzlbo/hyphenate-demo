@@ -9,120 +9,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import { HYPHENATION_OPTIONS } from '@/lib/words'
 
 // Define the type for hyphenation options
 export interface HyphenationOption {
   name: string
   options: string[]
 }
-
-// Hyphenation data for the given text
-const HYPHENATION_OPTIONS: HyphenationOption[] = [
-  {
-    name: 'Олноо',
-    options: ['Ол-ноо'],
-  },
-  {
-    name: 'өргөгдсөний',
-    options: ['өр-гөгдсөний', 'өргөгд-сөний', 'өргөгдсөн-ий'],
-  },
-  {
-    name: 'дөтгөөр',
-    options: ['дөт-гөөр'],
-  },
-  {
-    name: 'оны',
-    options: ['о-ны'],
-  },
-  {
-    name: 'зуны',
-    options: ['зу-ны'],
-  },
-  {
-    name: 'эхэн',
-    options: ['э-хэн'],
-  },
-  {
-    name: 'сарын',
-    options: ['са-рын'],
-  },
-  {
-    name: 'нэгэн',
-    options: ['нэ-гэн'],
-  },
-  {
-    name: 'өдөр',
-    options: ['ө-дөр'],
-  },
-  {
-    name: 'Их',
-    options: ['Их'],
-  },
-  {
-    name: 'тамирын',
-    options: ['та-мирын', 'тамир-ын'],
-  },
-  {
-    name: 'хойгуур',
-    options: ['хой-гуур'],
-  },
-  {
-    name: 'гарсан',
-    options: ['гар-сан'],
-  },
-  {
-    name: 'замаар',
-    options: ['за-маар'],
-  },
-  {
-    name: 'гуч',
-    options: ['гуч'],
-  },
-  {
-    name: 'орчим',
-    options: ['ор-чим'],
-  },
-  {
-    name: 'насны',
-    options: ['нас-ны'],
-  },
-  {
-    name: 'хар',
-    options: ['хар'],
-  },
-  {
-    name: 'хүн',
-    options: ['хүн'],
-  },
-  {
-    name: 'нилээд',
-    options: ['ни-лээд'],
-  },
-  {
-    name: 'ачаатай',
-    options: ['а-чаатай', 'ачаа-тай'],
-  },
-  {
-    name: 'морин',
-    options: ['мо-рин'],
-  },
-  {
-    name: 'тэрэг',
-    options: ['те-рэг'],
-  },
-  {
-    name: 'хөтлөөд',
-    options: ['хөт-лөөд'],
-  },
-  {
-    name: 'явж',
-    options: ['явж'],
-  },
-  {
-    name: 'байв',
-    options: ['байв'],
-  },
-]
 
 interface HyphenateSelectorProps {
   open: boolean

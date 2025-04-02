@@ -7,7 +7,6 @@ import {
   ImageIcon,
   List,
   ListOrdered,
-  MessageSquarePlus,
   Text,
   TextQuote,
   Twitter,

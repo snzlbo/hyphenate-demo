@@ -15,7 +15,7 @@ const Navbar = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
-        'w-full h-16 items-center justify-between border border-border dark:bg-zinc-800 bg-zinc-100 rounded-lg p-4 m-4 flex',
+        'w-full h-16 items-center justify-between border border-border dark:bg-black bg-white rounded-lg p-4 m-4 flex',
         className
       )}
     >

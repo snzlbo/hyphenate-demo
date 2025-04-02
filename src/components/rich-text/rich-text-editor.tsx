@@ -21,6 +21,7 @@ import { ColorSelector } from '@/components/selectors/color-selector'
 import { LinkSelector } from '@/components/selectors/link-selector'
 import { MathSelector } from '@/components/selectors/math-selector'
 import { NodeSelector } from '@/components/selectors/node-selector'
+import { HyphenateSelector } from '@/components/selectors/hyphenate-selector'
 import { Separator } from '@/components/ui/separator'
 
 import GenerativeMenuSwitch from '@/components/rich-text/generative-menu-switch'
@@ -44,6 +45,7 @@ const TailwindAdvancedEditor = () => {
   const [openColor, setOpenColor] = useState(false)
   const [openLink, setOpenLink] = useState(false)
   const [openAI, setOpenAI] = useState(false)
+  const [openSyllable, setOpenSyllable] = useState(false)
 
   //Apply Codeblock Highlighting on the HTML from editor.getHTML()
   const highlightCodeblocks = (content: string) => {
@@ -74,9 +76,7 @@ const TailwindAdvancedEditor = () => {
   )
 
   useEffect(() => {
-    const content = window.localStorage.getItem('novel-content')
-    if (content) setInitialContent(JSON.parse(content))
-    else setInitialContent(defaultEditorContent)
+    setInitialContent(defaultEditorContent)
   }, [])
 
   if (!initialContent) return null
@@ -99,6 +99,7 @@ const TailwindAdvancedEditor = () => {
       </div>
       <EditorRoot>
         <EditorContent
+          immediatelyRender={false}
           initialContent={initialContent}
           extensions={extensions}
           className="relative min-h-svh w-full border-muted bg-background sm:mb-4 sm:rounded-lg sm:border sm:shadow-lg"
@@ -159,6 +160,10 @@ const TailwindAdvancedEditor = () => {
             <TextButtons />
             <Separator orientation="vertical" />
             <ColorSelector open={openColor} onOpenChange={setOpenColor} />
+            <HyphenateSelector
+              open={openSyllable}
+              onOpenChange={setOpenSyllable}
+            />
           </GenerativeMenuSwitch>
         </EditorContent>
       </EditorRoot>

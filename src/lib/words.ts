@@ -1,7 +1,7 @@
 export const HYPHENATION_OPTIONS = [
   {
     name: 'Хэнийг',
-    options: ['Хэ-ниг'],
+    options: ['Хэ-нийг'],
   },
   {
     name: 'яахав',
@@ -21,7 +21,7 @@ export const HYPHENATION_OPTIONS = [
   },
   {
     name: 'манайд',
-    options: ['ма-наид'],
+    options: ['ма-найд'],
   },
   {
     name: 'олон',
@@ -117,7 +117,7 @@ export const HYPHENATION_OPTIONS = [
   },
   {
     name: 'харахад',
-    options: ['ха-рахад'],
+    options: ['ха-рахад', 'хара-хад', 'ха-ра-хад'],
   },
   {
     name: 'сэргэлэн',
@@ -129,15 +129,11 @@ export const HYPHENATION_OPTIONS = [
   },
   {
     name: 'хүлээж',
-    options: ['хүлээ-ж'],
+    options: ['хү-лээж'],
   },
   {
     name: 'болохоор',
-    options: ['бо-лох-оор'],
-  },
-  {
-    name: 'Чингүнжавын',
-    options: ['Чин-гүн-жав-ын'],
+    options: ['бо-ло-хоор', 'боло-хоор'],
   },
   {
     name: 'эрх',
@@ -193,7 +189,7 @@ export const HYPHENATION_OPTIONS = [
   },
   {
     name: 'Миний',
-    options: ['Ми-ни-й'],
+    options: ['Ми-ний'],
   },
   {
     name: 'Очирхүүг',
@@ -509,11 +505,11 @@ export const HYPHENATION_OPTIONS = [
   },
   {
     name: 'хиаг',
-    options: ['хи-аг'],
+    options: ['хиаг'],
   },
   {
     name: 'морь',
-    options: ['мо-рий'],
+    options: ['морь'],
   },
   {
     name: 'шилүүлэн',

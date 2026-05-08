@@ -122,6 +122,7 @@ const PageEditor = ({
         setInitialContent(defaultContent)
       }
     } else {
+      console.log('no initial content')
       setInitialContent(defaultContent)
     }
   }, [pageNumber, defaultContent])

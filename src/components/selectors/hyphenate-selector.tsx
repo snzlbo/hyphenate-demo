@@ -9,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import { HYPHENATION_OPTIONS } from '@/lib/words'
 
 // Define the type for hyphenation options
 export interface HyphenationOption {
@@ -31,30 +32,43 @@ export function HyphenateSelector({
 
   // Get the selected word when the component opens
   useEffect(() => {
-    if (open && editor) {
-      const selection = editor.state.selection
-      const { from, to } = selection
+    const fetchOptions = async () => {
+      if (open && editor) {
+        const selection = editor.state.selection
+        const { from, to } = selection
 
-      if (from !== to) {
-        const selectedText = editor.state.doc.textBetween(from, to)
-        setSelectedWord(selectedText)
+        if (from !== to) {
+          const selectedText = editor.state.doc.textBetween(from, to)
+          console.log('🚀 ~ HyphenateSelector ~ selectedText:', selectedText)
+          setSelectedWord(selectedText)
 
-        // Find hyphenation options for the selected word
-        const localStorageItems =
-          window.localStorage.getItem('hyphenate-options')
-        const wordOptions = localStorageItems
-          ? JSON.parse(localStorageItems).find(
-              (item: { name: string }) => item.name === selectedText,
-            )
-          : null
+          // Find hyphenation options for the selected word
+          const localStorageItems = await new Promise<string | null>(
+            (resolve) => {
+              resolve(window.localStorage.getItem('hyphenate-options'))
+            },
+          )
+          const wordOptions = localStorageItems
+            ? JSON.parse(localStorageItems).find(
+                (item: { name: string }) => item.name === selectedText,
+              )
+            : HYPHENATION_OPTIONS.find((item) => item.name === selectedText) ||
+              null
+          console.log('🚀 ~ HyphenateSelector ~ wordOptions:', wordOptions)
 
-        if (wordOptions) {
-          setOptions(wordOptions.options)
-        } else {
-          setOptions([])
+          if (wordOptions) {
+            setOptions(wordOptions.options)
+          } else {
+            setOptions([])
+          }
         }
+      } else {
+        console.log(
+          '🚀 ~ HyphenateSelector ~ editor not found or popover closed',
+        )
       }
     }
+    fetchOptions()
   }, [open, editor])
 
   if (!editor) {

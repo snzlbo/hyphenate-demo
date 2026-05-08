@@ -9,7 +9,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import { HYPHENATION_OPTIONS } from '@/lib/words'
 
 // Define the type for hyphenation options
 export interface HyphenationOption {

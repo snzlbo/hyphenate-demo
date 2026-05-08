@@ -44,7 +44,7 @@ export function HyphenateSelector({
           window.localStorage.getItem('hyphenate-options')
         const wordOptions = localStorageItems
           ? JSON.parse(localStorageItems).find(
-              (item) => item.name === selectedText,
+              (item: { name: string }) => item.name === selectedText,
             )
           : null
 

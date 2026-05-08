@@ -39,6 +39,7 @@ import {
 import hljs from 'highlight.js'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
+import { HYPHENATION_OPTIONS } from '@/lib/words'
 
 const extensions = [...defaultExtensions, slashCommand]
 
@@ -96,6 +97,10 @@ const PageEditor = ({
       window.localStorage.setItem(
         `markdown-page-${pageNumber}`,
         editor.storage.markdown.getMarkdown()
+      )
+      window.localStorage.setItem(
+        'hyphenate-options',
+        JSON.stringify(HYPHENATION_OPTIONS)
       )
 
       setSaveStatus('Saved')

@@ -597,7 +597,7 @@ export const HYPHENATION_OPTIONS = [
   },
   {
     name: 'баясаж',
-    options: ['ба-я-саж'],
+    options: ['бая-саж'],
   },
   {
     name: 'майхандаа',

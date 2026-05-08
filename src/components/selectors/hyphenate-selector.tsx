@@ -41,9 +41,13 @@ export function HyphenateSelector({
         setSelectedWord(selectedText)
 
         // Find hyphenation options for the selected word
-        const wordOptions = HYPHENATION_OPTIONS.find(
-          (item) => item.name === selectedText
-        )
+        const localStorageItems =
+          window.localStorage.getItem('hyphenate-options')
+        const wordOptions = localStorageItems
+          ? JSON.parse(localStorageItems).find(
+              (item) => item.name === selectedText,
+            )
+          : null
 
         if (wordOptions) {
           setOptions(wordOptions.options)
